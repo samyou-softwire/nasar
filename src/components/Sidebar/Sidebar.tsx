@@ -1,7 +1,6 @@
 import styles from "./Sidebar.module.css";
 import {Link, useHref, useLoaderData, useMatch} from "react-router-dom";
 import {RouteObject} from "../../FakeAPI";
-import {useCallback} from "react";
 
 const Sidebar = (props: {
     title: string,
