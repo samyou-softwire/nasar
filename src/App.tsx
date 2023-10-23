@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, isRouteErrorResponse, RouterProvider, useRouteError} from "react-router-dom";
 import Layout from "./routes/Layout";
 import Rocks from "./routes/rocks/Rocks";
 import MinecraftRocks from "./routes/rocks/minecraft/MinecraftRocks";
@@ -17,9 +17,34 @@ import Planets from "./routes/solar_system/planets/Planets";
 import Earth from "./routes/solar_system/planets/Earth";
 import Mars from "./routes/solar_system/planets/Mars";
 
+function RootBoundary() {
+    const error = useRouteError();
+
+    if (isRouteErrorResponse(error)) {
+        if (error.status === 404) {
+            return <div>This page doesn't exist!</div>;
+        }
+
+        if (error.status === 401) {
+            return <div>You aren't authorized to see this</div>;
+        }
+
+        if (error.status === 503) {
+            return <div>Looks like our API is down</div>;
+        }
+
+        if (error.status === 418) {
+            return <div>🫖</div>;
+        }
+    }
+
+    return <div>Something went wrong</div>;
+}
+
 const router = createBrowserRouter([{
     path: "/",
     element: <Layout/>,
+    errorElement: <RootBoundary/>,
     children: [
         {
             path: "rocks",
@@ -58,6 +83,7 @@ const router = createBrowserRouter([{
         {
             path: "solar-system",
             element: <SolarSystem/>,
+            errorElement: <p>Oh no!</p>,
             children: [
                 {
                     path: "moons",
