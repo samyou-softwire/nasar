@@ -9,9 +9,6 @@ const Sidebar = (props: PropsWithChildren<{
     <div className={styles.Links}>
         {props.children}
     </div>
-    <div className={styles.Outlet}>
-        <Outlet/>
-    </div>
 </div>
 
 export default Sidebar;
