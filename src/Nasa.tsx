@@ -1,12 +1,11 @@
-import nasa from "./nasa.png"
+import Paragraph from "./Paragraph";
 
-const Nasa = () => {
-    return <div>
-        <h1>Welcome to NASA info centre!!!</h1>
-        <p>See our selection of rovers and all the photos.</p>
-        <p>Curiosity is my favourite!</p>
-        <img className={"NasaLogo"} src={"./nasa.png"} alt={"nasa logo"}/>
-    </div>
-}
+const Nasa = () => <Paragraph
+    title={"Welcome to NASA info centre!!!"}
+    paragraph1={"See our selection of rovers and all the photos."}
+    paragraph2={"Curiosity is my favourite!"}
+    imageSrc={"./nasa.png"}
+    imageAlt={"nasa logo"}
+/>
 
 export default Nasa;
