@@ -1,7 +1,7 @@
-type RouteObject = {id: string, display: string};
+export type RouteObject = {id: string, display: string};
 
 export function getObjects(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "rocks",
@@ -16,7 +16,7 @@ export function getObjects(): Promise<RouteObject[]> {
 }
 
 export function getRocks(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "minecraft",
@@ -31,7 +31,7 @@ export function getRocks(): Promise<RouteObject[]> {
 }
 
 export function getSolarSystem(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "planets",
@@ -46,7 +46,7 @@ export function getSolarSystem(): Promise<RouteObject[]> {
 }
 
 export function getMinecraft(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "cobblestone",
@@ -61,7 +61,7 @@ export function getMinecraft(): Promise<RouteObject[]> {
 }
 
 export function getReal(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "pebble",
@@ -76,7 +76,7 @@ export function getReal(): Promise<RouteObject[]> {
 }
 
 export function getPlanets(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "earth",
@@ -91,7 +91,7 @@ export function getPlanets(): Promise<RouteObject[]> {
 }
 
 export function getMoons(): Promise<RouteObject[]> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
         setTimeout(() => resolve([
             {
                 id: "moon",

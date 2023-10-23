@@ -16,6 +16,7 @@ import Obsidian from "./routes/rocks/minecraft/Obsidian";
 import Planets from "./routes/solar_system/planets/Planets";
 import Earth from "./routes/solar_system/planets/Earth";
 import Mars from "./routes/solar_system/planets/Mars";
+import {getMinecraft, getMoons, getObjects, getPlanets, getReal, getRocks, getSolarSystem} from "./FakeAPI";
 
 function RootBoundary() {
     const error = useRouteError();
@@ -45,14 +46,23 @@ const router = createBrowserRouter([{
     path: "/",
     element: <Layout/>,
     errorElement: <RootBoundary/>,
+    loader: () => {
+        return getObjects();
+    },
     children: [
         {
             path: "rocks",
             element: <Rocks/>,
+            loader: () => {
+                return getRocks();
+            },
             children: [
                 {
                     path: "minecraft",
                     element: <MinecraftRocks/>,
+                    loader: () => {
+                        return getMinecraft();
+                    },
                     children: [
                         {
                             path: "cobblestone",
@@ -67,6 +77,9 @@ const router = createBrowserRouter([{
                 {
                     path: "real",
                     element: <RealRocks/>,
+                    loader: () => {
+                        return getReal();
+                    },
                     children: [
                         {
                             path: "pebble",
@@ -83,11 +96,16 @@ const router = createBrowserRouter([{
         {
             path: "solar-system",
             element: <SolarSystem/>,
-            errorElement: <p>Oh no!</p>,
+            loader: () => {
+                return getSolarSystem();
+            },
             children: [
                 {
                     path: "moons",
                     element: <Moons/>,
+                    loader: () => {
+                        return getMoons();
+                    },
                     children: [
                         {
                             path: "moon",
@@ -102,6 +120,9 @@ const router = createBrowserRouter([{
                 {
                     path: "planets",
                     element: <Planets/>,
+                    loader: () => {
+                        return getPlanets();
+                    },
                     children: [
                         {
                             path: "earth",

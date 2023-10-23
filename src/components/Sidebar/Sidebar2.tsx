@@ -1,13 +1,18 @@
-import {PropsWithChildren} from "react";
 import styles from "./Sidebar.module.css";
+import {Link, useLoaderData} from "react-router-dom";
+import {RouteObject} from "../../FakeAPI";
 
-const Sidebar2 = (props: PropsWithChildren<{
+const Sidebar2 = (props: {
     title: string
-}>) => <div className={styles.Sidebar2}>
-    <h2>{props.title}</h2>
-    <div className={styles.Links}>
-        {props.children}
+}) => {
+    const routes = useLoaderData() as RouteObject[]
+
+    return <div className={styles.Sidebar2}>
+        <h2>{props.title}</h2>
+        <div className={styles.Links}>
+            {routes.map(route => <Link to={route.id}>{route.display}</Link>)}
+        </div>
     </div>
-</div>
+}
 
 export default Sidebar2;

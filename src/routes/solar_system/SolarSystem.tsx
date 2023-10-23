@@ -1,11 +1,8 @@
-import {Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 const SolarSystem = () => <>
-    <Sidebar title={"The Solar System"}>
-        <Link to={"planets"}>Planets</Link>
-        <Link to={"moons"}>Moons</Link>
-    </Sidebar>
+    <Sidebar title={"Solar System"}/>
     <Outlet/>
 </>
 
