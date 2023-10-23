@@ -1,4 +1,4 @@
-import Paragraph from "./Paragraph";
+import Paragraph from "../Paragraph/Paragraph";
 
 const Nasa = () => <Paragraph
     title={"Welcome to NASA info centre!!!"}

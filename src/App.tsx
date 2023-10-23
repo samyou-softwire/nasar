@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Nasa from "./Nasa";
-import ClickerButton from "./ClickerButton";
-import ClickerButton2 from "./ClickerButton2";
+import Nasa from "./components/Nasa/Nasa";
+import ClickerButton from "./components/ClickerButton/ClickerButton";
+import ClickerButton2 from "./components/ClickerButton/ClickerButton2";
 
 function App() {
     return (
