@@ -4,12 +4,11 @@
     grid-row: 2 / span 1;
 }
 
-/*.Outlet {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 20rem;*/
-/*    width: 100%;*/
-/*}*/
+.Sidebar2 {
+    background-color: #DDDDDD;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+}
 
 .Links {
     display: flex;

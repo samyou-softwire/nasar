@@ -1,8 +1,12 @@
-import {Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
+import Sidebar2 from "../../../components/Sidebar/Sidebar2";
 
-const MinecraftRocks = () => <div>
-    <h3>Minecraft Rocks</h3>
+const MinecraftRocks = () => <>
+    <Sidebar2 title={"Minecraft"}>
+        <Link to={"cobblestone"}>Cobblestone</Link>
+        <Link to={"obsidian"}>Obsidian</Link>
+    </Sidebar2>
     <Outlet/>
-</div>;
+</>
 
 export default MinecraftRocks;
