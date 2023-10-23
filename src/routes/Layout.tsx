@@ -9,7 +9,7 @@ const Layout = () => {
         <header className={styles.Header}>
             <h1>Objects Website</h1>
             <div className={styles.Links}>
-                {objects.map(route => <Link to={route.id}>{route.display}</Link>)}
+                {objects.map(route => <Link key={route.id} to={route.id}>{route.display}</Link>)}
             </div>
         </header>
         <Outlet/>

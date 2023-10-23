@@ -11,6 +11,7 @@ const Sidebar = (props: {
     const href = useHref(".");
     function useRoute(route: RouteObject) {
         return <Link
+            key={route.id}
             className={useMatch(`${href}/${route.id}`) ? styles.ActiveLink : ""}
             to={route.id}
         >
