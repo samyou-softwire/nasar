@@ -1,7 +1,13 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const ClickerButton = () => {
-    const [clicks, setClicks] = useState<number>(0);
+    const storedClicks = localStorage.getItem("clicks");
+    const initialClicks = storedClicks ? parseInt(storedClicks) : 0;
+    const [clicks, setClicks] = useState<number>(initialClicks);
+
+    useEffect(() => {
+        localStorage.setItem("clicks", `${clicks}`);
+    }, [clicks]);
 
     return <button onClick={() => setClicks(clicks+1)}>Clicks {clicks}</button>
 }
