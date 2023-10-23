@@ -1,10 +1,11 @@
-import MinecraftRocks from "./minecraft/MinecraftRocks";
-import RealRocks from "./real/RealRocks";
-import {Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 const Rocks = () => <div>
-    <h2>Rocks</h2>
-    <Outlet/>
+    <Sidebar title={"Rocks"}>
+        <Link to={"minecraft"}>Minecraft</Link>
+        <Link to={"real"}>Real</Link>
+    </Sidebar>
 </div>
 
 export default Rocks;

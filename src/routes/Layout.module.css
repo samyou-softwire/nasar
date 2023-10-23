@@ -1,0 +1,10 @@
+.Layout {
+    width: 100%;
+    background-color: #EEEEEE;
+    height: 5rem;
+}
+
+.Links {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,10 +1,11 @@
-import TheMoon from "./moons/TheMoon";
-import Earth from "./planets/Earth";
-import {Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 const SolarSystem = () => <div>
-    <h2>The Solar System</h2>
-    <Outlet/>
+    <Sidebar title={"The Solar System"}>
+        <Link to={"planets"}>Planets</Link>
+        <Link to={"moons"}>Moons</Link>
+    </Sidebar>
 </div>
 
 export default SolarSystem;

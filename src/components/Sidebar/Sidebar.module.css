@@ -1,0 +1,20 @@
+.Sidebar {
+    background-color: #DDDDDD;
+    width: 20rem;
+    top: 5rem;
+    bottom: 0;
+    position: absolute;
+}
+
+.Outlet {
+    position: absolute;
+    top: 0;
+    left: 20rem;
+    width: 100%;
+}
+
+.Links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
