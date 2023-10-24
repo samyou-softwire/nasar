@@ -13,6 +13,8 @@ type PhotosData = PhotoData[];
 const Photos = () => {
     const photosData = useLoaderData() as PhotosData;
 
+    console.log(photosData);
+
     return <div>
         {photosData.map(photoData => <img
             src={photoData.src}
