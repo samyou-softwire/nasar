@@ -1,6 +1,7 @@
-import {Link, LoaderFunction, Outlet, useLoaderData} from "react-router-dom";
+import {isRouteErrorResponse, Link, LoaderFunction, Outlet, useLoaderData, useRouteError} from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import {fetchFromBackend} from "../../API";
+import React from "react";
 
 interface RoverData {
     id: string,
@@ -25,6 +26,18 @@ const Rovers = () => {
 }
 export const roversLoader: LoaderFunction = async () => {
     return fetchFromBackend("rovers");
+}
+
+export function RoversBoundary() {
+    const error = useRouteError();
+
+    if (isRouteErrorResponse(error)) {
+        if (error.status === 404) {
+            return <div>Couldn't load rovers list!</div>;
+        }
+    }
+
+    return <div>Something went wrong</div>;
 }
 
 
