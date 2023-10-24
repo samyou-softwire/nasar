@@ -3,8 +3,8 @@ import './App.css';
 import {createBrowserRouter, isRouteErrorResponse, RouterProvider, useRouteError} from "react-router-dom";
 import Layout from "./routes/Layout";
 import Rovers, {roversLoader} from "./routes/rovers/Rovers";
-import Cameras from "./routes/rovers/cameras/Cameras";
-import Photos from "./routes/rovers/cameras/photos/Photos";
+import Cameras, {camerasLoader} from "./routes/rovers/cameras/Cameras";
+import Photos, {photosLoader} from "./routes/rovers/cameras/photos/Photos";
 
 function RootBoundary() {
     const error = useRouteError();
@@ -43,10 +43,12 @@ const router = createBrowserRouter([{
                 {
                     path: ":roverID/cameras",
                     element: <Cameras/>,
+                    loader: camerasLoader,
                     children: [
                         {
                             path: ":cameraID/photos",
-                            element: <Photos/>
+                            element: <Photos/>,
+                            loader: photosLoader
                         }
                     ]
                 },
