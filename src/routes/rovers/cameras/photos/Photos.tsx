@@ -1,6 +1,6 @@
 import {isRouteErrorResponse, LoaderFunction, useLoaderData, useRouteError} from "react-router-dom";
 import {fetchFromBackend} from "../../../../API";
-import React from "react";
+import styles from "./Photos.module.css";
 
 interface PhotoData {
     src: string,
@@ -14,8 +14,9 @@ type PhotosData = PhotoData[];
 const Photos = () => {
     const photosData = useLoaderData() as PhotosData;
 
-    return <div>
+    return <div className={styles.PhotoHolder}>
         {photosData.map(photoData => <img
+            className={styles.Image}
             src={photoData.src}
             alt={`${photoData.rover} ${photoData.camera}`}
             key={photoData.id}
