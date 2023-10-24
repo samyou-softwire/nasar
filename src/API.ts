@@ -1,0 +1,1 @@
+export const fetchFromBackend: typeof fetch = (input, init) => fetch(`http://localhost:8000/${input}`, init);

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {createBrowserRouter, isRouteErrorResponse, RouterProvider, useRouteError} from "react-router-dom";
 import Layout from "./routes/Layout";
-import Rovers from "./routes/rovers/Rovers";
+import Rovers, {roversLoader} from "./routes/rovers/Rovers";
 import Cameras from "./routes/rovers/cameras/Cameras";
 import Photos from "./routes/rovers/cameras/photos/Photos";
 
@@ -38,6 +38,7 @@ const router = createBrowserRouter([{
         {
             path: "rovers",
             element: <Rovers/>,
+            loader: roversLoader,
             children: [
                 {
                     path: ":roverID/cameras",
