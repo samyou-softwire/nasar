@@ -2,21 +2,9 @@ import React from 'react';
 import './App.css';
 import {createBrowserRouter, isRouteErrorResponse, RouterProvider, useRouteError} from "react-router-dom";
 import Layout from "./routes/Layout";
-import Rocks from "./routes/rocks/Rocks";
-import MinecraftRocks from "./routes/rocks/minecraft/MinecraftRocks";
-import RealRocks from "./routes/rocks/real/RealRocks";
-import SolarSystem from "./routes/solar_system/SolarSystem";
-import TheMoon from "./routes/solar_system/moons/TheMoon";
-import Moons from "./routes/solar_system/moons/Moons";
-import CrescentMoon from "./routes/solar_system/moons/CrescentMoon";
-import Pebble from "./routes/rocks/real/Pebble";
-import Marble from "./routes/rocks/real/Marble";
-import Cobblestone from "./routes/rocks/minecraft/Cobblestone";
-import Obsidian from "./routes/rocks/minecraft/Obsidian";
-import Planets from "./routes/solar_system/planets/Planets";
-import Earth from "./routes/solar_system/planets/Earth";
-import Mars from "./routes/solar_system/planets/Mars";
-import {getMinecraft, getMoons, getObjects, getPlanets, getReal, getRocks, getSolarSystem} from "./FakeAPI";
+import Rovers from "./routes/rovers/Rovers";
+import Cameras from "./routes/rovers/cameras/Cameras";
+import Photos from "./routes/rovers/cameras/photos/Photos";
 
 function RootBoundary() {
     const error = useRouteError();
@@ -46,96 +34,23 @@ const router = createBrowserRouter([{
     path: "/",
     element: <Layout/>,
     errorElement: <RootBoundary/>,
-    loader: () => {
-        return getObjects();
-    },
     children: [
         {
-            path: "rocks",
-            element: <Rocks/>,
-            loader: () => {
-                return getRocks();
-            },
+            path: "rovers",
+            element: <Rovers/>,
             children: [
                 {
-                    path: "minecraft",
-                    element: <MinecraftRocks/>,
-                    loader: () => {
-                        return getMinecraft();
-                    },
+                    path: ":roverID/cameras",
+                    element: <Cameras/>,
                     children: [
                         {
-                            path: "cobblestone",
-                            element: <Cobblestone/>
-                        },
-                        {
-                            path: "obsidian",
-                            element: <Obsidian/>
-                        }
-                    ]
-                },
-                {
-                    path: "real",
-                    element: <RealRocks/>,
-                    loader: () => {
-                        return getReal();
-                    },
-                    children: [
-                        {
-                            path: "pebble",
-                            element: <Pebble/>
-                        },
-                        {
-                            path: "marble",
-                            element: <Marble/>
+                            path: ":cameraID/photos",
+                            element: <Photos/>
                         }
                     ]
                 },
             ]
         },
-        {
-            path: "solar-system",
-            element: <SolarSystem/>,
-            loader: () => {
-                return getSolarSystem();
-            },
-            children: [
-                {
-                    path: "moons",
-                    element: <Moons/>,
-                    loader: () => {
-                        return getMoons();
-                    },
-                    children: [
-                        {
-                            path: "moon",
-                            element: <TheMoon/>
-                        },
-                        {
-                            path: "crescent",
-                            element: <CrescentMoon/>
-                        }
-                    ]
-                },
-                {
-                    path: "planets",
-                    element: <Planets/>,
-                    loader: () => {
-                        return getPlanets();
-                    },
-                    children: [
-                        {
-                            path: "earth",
-                            element: <Earth/>
-                        },
-                        {
-                            path: "mars",
-                            element: <Mars/>
-                        }
-                    ]
-                },
-            ]
-        }
     ]
 }])
 

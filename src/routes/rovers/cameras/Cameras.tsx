@@ -1,9 +1,9 @@
 import {Outlet} from "react-router-dom";
 import Sidebar2 from "../../../components/Sidebar/Sidebar2";
 
-const Planets = () => <>
-    <Sidebar2 title={"Planets"}/>
+const Cameras = () => <>
+    <Sidebar2 title={"Cameras"}/>
     <Outlet/>
-</>;
+</>
 
-export default Planets;
+export default Cameras;

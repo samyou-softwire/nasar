@@ -1,14 +1,13 @@
 import styles from "./Sidebar.module.css";
-import {Link, useHref, useLoaderData, useMatch} from "react-router-dom";
-import {RouteObject} from "../../FakeAPI";
+import {Link, useHref, useMatch} from "react-router-dom";
 
 const Sidebar = (props: {
     title: string,
     right?: boolean,
 }) => {
-    const routes = useLoaderData() as RouteObject[];
+    const objects: any[] = [];
     const href = useHref(".");
-    function useRoute(route: RouteObject) {
+    function useRoute(route: any) {
         return <Link
             key={route.id}
             className={useMatch(`${href}/${route.id}`) ? styles.ActiveLink : ""}
@@ -21,7 +20,7 @@ const Sidebar = (props: {
     return <div className={props.right ? styles.Sidebar2 : styles.Sidebar}>
         <h2>{props.title}</h2>
         <div className={styles.Links}>
-            {routes.map(useRoute)}
+            {objects.map(useRoute)}
         </div>
     </div>
 }
